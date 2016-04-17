@@ -3,15 +3,13 @@
 
 ## 本系统主要依赖于以下开源项目：
 
-[WeixinApi​]: https://github.com/zxlie/WeixinApi	"weixinApi"
-[​PHPExcel]: https://github.com/PHPOffice/PHPExcel	"PHPExcel"
-[ThinkPHP 3.2​]: https://github.com/top-think/thinkphp	"ThinkPHP"
-[UEditor​]: https://github.com/fex-team/ueditor	"UEditor"
-[wScratchPad​]: https://github.com/websanova/wScratchPad	"wScratchPad"
-[jQuery​]: https://github.com/jquery/jquery	"jQuery"
-[Validform​]: https://github.com/haiercdboy/Validform	"Validform"
-
-
+* [WeixinApi](https://github.com/zxlie/WeixinApi)
+* [PHPExcel](https://github.com/PHPOffice/PHPExcel)
+* [ThinkPHP 3.2](https://github.com/top-think/thinkphp)
+* [UEditor](https://github.com/fex-team/ueditor)
+* [wScratchPad](https://github.com/websanova/wScratchPad)
+* [jQuery](https://github.com/jquery/jquery)
+* [Validform](https://github.com/haiercdboy/Validform)
 
 ## 说明：
 
