@@ -1,0 +1,70 @@
+<head>
+<title>App设置</title>
+<include file="model/head" />
+</head>
+<body>
+<include file="model/nav" />
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="col-md-10 col-md-offset-1">
+
+<form method="POST" action="<{:U('Admin/Setting/solveapp')}>" id="form">
+
+<div class="panel panel-primary">
+<div class="panel-heading">App设置</div>
+<ul class="list-group">
+
+<li class="list-group-item">
+<div class="controls input-group">
+<span class="input-group-addon">AppSecret</span>
+<input type="text" name="appsecret" datatype="*" errormsg="请填写内容" class="form-control" value="<{$data.appsecret}>"/>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="controls input-group">
+<span class="input-group-addon">Token</span>
+<input type="text" name="token"  datatype="*" errormsg="请填写内容"  class="form-control" value="<{$data.token}>"/>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="controls input-group">
+<span class="input-group-addon">Encodingaeskey</span>
+<input type="text" name="encodingaeskey" datatype="*" errormsg="请填写内容" class="form-control" value="<{$data.encodingaeskey}>" />
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="controls input-group">
+<span class="input-group-addon">自定义菜单</span>
+<select datatype="*" errormsg="请选择一个选项" name="menu" class="form-control" datatype="*" errormsg="请选择一项选项">
+	<option value="1">开始设置</option>
+	<option value="0">设置完成</option>
+</select>
+</div>
+</li>
+
+</ul>
+</div>
+</div>
+
+<div class="container-fluid" style="padding-top:1.5%">
+<div class="row-fluid">
+<div class="col-md-8 col-md-offset-2">
+<input class="btn btn-info btn-block btn-lg" type="submit" value="提交" />
+</div>
+</div>
+</div>
+
+<script>
+$(function(){
+    $("#form").Validform({tiptype:3});
+})
+</script>
+
+</div>
+</div>
+</div>
+<include file="model/footer"/>
+</body>

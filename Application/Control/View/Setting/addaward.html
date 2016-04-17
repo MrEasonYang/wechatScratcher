@@ -1,0 +1,94 @@
+<head>
+<title>奖品设置</title>
+<include file="model/head" />
+</head>
+<body>
+<include file="model/nav" />
+<form method="POST" action="<{:U('Admin/Setting/solveaward')}>" id="form" enctype="multipart/form-data">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="col-md-8 col-md-offset-2">
+<div class="panel panel-primary">
+<ul class="list-group">
+
+<li class="list-group-item">
+<div class="control-group">
+<div class="controls">
+<label class="control-label" for="award_name">名称</label>
+</div>
+<div class="controls">
+<input type="text" name="award_name" class="form-control" datatype="*" errormsg="请输入内容"/>
+</div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="control-group">
+<div class="controls">
+<label class="control-label" for="probility">概率(1~100整数)</label>
+</div>
+<div class="controls">
+<input type="text" name="probility" class="form-control" datatype="*" errormsg="请输入内容"/>
+</div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="control-group">
+<div class="controls">
+<label class="control-label" for="amount">数量</label>
+</div>
+<div class="controls">
+<input type="text" name="amount" class="form-control" datatype="*" errormsg="请输入内容"/>
+</div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="control-group">
+<div class="controls">
+<label class="control-label" for="image">展示图片(jpg格式,大小自定)</label>
+</div>
+<div class="controls">
+<input type="file" name="image" class="form-control" datatype="*" errormsg="请输入内容"/>
+</div>
+</div>
+</li>
+
+<li class="list-group-item">
+<div class="control-group">
+<div class="controls">
+<label class="control-label" for="image1">刮奖图片(jpg格式,202*72)</label>
+</div>
+<div class="controls">
+<input type="file" name="image1" class="form-control" datatype="*" errormsg="请输入内容"/>
+</div>
+</div>
+</li>
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container-fluid" style="padding-top:1%">
+<div class="row-fluid">
+<div class="col-md-2 col-md-offset-5">
+<input type="submit" class="btn btn-info btn-block btn-lg" value="提交" />
+</div>
+</div>
+</div>
+
+</form>
+
+<script>
+$(function(){
+    $("#form").Validform({tiptype:3});
+})
+</script>
+</div>
+</div>
+</div>
+<include file="model/footer"/>
+</body>

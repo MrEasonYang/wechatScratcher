@@ -1,0 +1,70 @@
+<head>
+<title>后台中心-微信刮刮乐</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="__PUBLIC__/css/common.css" rel="stylesheet"/>
+<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/js/Validform.min.js"></script>
+<style>
+   body{height:100%;min-height:80%;height:auto !important;height:100%;position:relative;paddint-bottom:1%;}
+   .common-footer{position:absolute;bottom:0;width:100%;height:60px;clear:both;margin-top: 5%;background-color: #30373f;font-size: 0.8em;text-align: center;padding: 2%;width: 100%float: left;}
+   .common-footer a{color: #FFFFCC;}
+</style>
+<script>
+$(document).ready(function () {
+	$('#1').attr({class:"active"});
+});
+</script>
+</head>
+<body>
+<include file="model/nav" />
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="col-md-5 col-md-offset-1">
+<div class="panel panel-default">
+   <div class="panel-heading">
+      <h3 class="panel-title">
+         服务器及系统信息
+      </h3>
+   </div>
+   <div class="panel-body">
+	<ul class="list-group">
+   		<li class="list-group-item">服务器软件：<{$info.seversoftware}></li>
+   		<li class="list-group-item">服务器IP：<{$info.ip}></li>
+   		<li class="list-group-item">服务器系统：<{$info.os}></li>
+   		<li class="list-group-item">服务器时间：<{$info.time}></li>
+   		<li class="list-group-item">上传限制：<{$info.upload}></li>
+   		<li class="list-group-item">POST限制：<{$info.post}></li>
+   		<li class="list-group-item">PHP安全模式：<{$info.safemode}></li>
+	</ul>
+   </div>
+</div>
+</div>
+<div class="col-md-5">
+<div class="panel panel-default">
+   <div class="panel-heading">
+      <h3 class="panel-title">
+         数据信息
+      </h3>
+   </div>
+   <div class="panel-body">
+	<ul class="list-group">
+   		<li class="list-group-item">参与用户总数：<{$count}></li>
+   		<li class="list-group-item">Token：<{$data.token}></li>
+   		<li class="list-group-item">encodingaeskey：<{$data.encodingaeskey}></li>
+   		<li class="list-group-item">appid：<{$data.appid}></li>
+   		<li class="list-group-item">权限：<{$data.permission}></li>
+   		<li class="list-group-item">有效期：<{$data.time}></li>
+	</ul>
+   </div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+<include file="model/footer"/>

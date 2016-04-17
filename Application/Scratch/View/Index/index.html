@@ -1,0 +1,383 @@
+<html>
+<!--第一种情况-->
+<if condition="$checkshow eq 1">
+<head>
+<include file="model/head" />
+</head>
+<body>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="col-xs-12">
+<div class="head">
+</div>
+<div class="main">
+<div id="title"></div>
+<div class="award">
+<div class="panel panel-success">
+   <div class="panel-heading">
+        <h3 class="panel-title">奖品列表</h3>
+   </div>
+   <div class="panel-body">
+        <ul class="list-group">
+        <volist name="award" id="vo">
+        <li class="list-group-item" style="float: left;"><img src="__PUBLIC__/Uploads/images/<{$vo.showimage}>" style="width: 15%;height: 10%"/></li>
+        </volist>
+        </ul>
+   </div>
+</div>
+</div>
+<div class="panel panel-success">
+   <div class="panel-heading">
+        <h3 class="panel-title">第一步：刮一刮</h3>
+   </div>
+   <div class="panel-body">
+   <center>
+   <div id="card" style="display:inline-block; position:relative; border:solid black 1px;margin: 0 auto;"></div>
+   </center>
+</div>
+</div>
+
+      <div id="mcover" onclick="document.getElementById('mcover').style.display='';" style="display:none;">
+                    <img src="__PUBLIC__/guide.png" />
+                </div>
+   <div class="text" id="content">
+                    <div id="mess_share">
+                        <div id="share_2">
+                            <button class="btn btn-danger" onclick="document.getElementById('mcover').style.display='block';" style="width: 100%;">
+                            第二步：点击分享到朋友圈
+                            </button>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+<div class="rules">
+<div class="panel panel-success">
+   <div class="panel-heading">
+      <h3 class="panel-title">活动细则</h3>
+   </div>
+   <div class="panel-body" id="jump">
+<ul class="list-group">
+   <li class="list-group-item text-left"><{$introduction|htmlspecialchars_decode|stripslashes}></li>
+</ul>
+</div>
+</div>
+</div>
+<a class="text-center" style="color: #ffffff" href="www.eason-yang.com">© 2014 Eason Yang ALL RIGHTS RESERVED</a>
+</div>
+</div>
+</div>
+<script>
+$('#card').wScratchPad({
+  //size        : 5,          // The size of the brush/scratch.
+  bg          : '#cacaca',  // Background (image path or hex color).
+  fg          : '#6699ff',  // Foreground (image path or hex color).
+  realtime    : true,       // Calculates percentage in realitime.
+  cursor      : 'crosshair' ,// Set cursor.
+  image :  '__PUBLIC__/Uploads/images/<{$result}>'
+});
+</script>
+<if condition="twice eq 1">
+<script type="text/javascript">
+
+  // 开启Api的debug模式
+  WeixinApi.enableDebugMode();
+
+  // 需要分享的内容，请放到ready里
+  WeixinApi.ready(function(Api) {
+
+  // 微信分享的数据
+  var wxData = {
+      "appId": "", // 服务号可以填写appId
+      "imgUrl" : '__PUBLIC__/images/index.jpg',
+      "link" : "<{$shareurl}>",
+      "desc" : '炫目大奖，轻轻一刮拿回家',
+      "title" : "微信刮刮乐——分享得大奖"
+      };
+
+  // 分享的回调
+  var wxCallbacks = {
+      // 收藏操作是否触发回调，默认是开启的
+      favorite : false,
+
+      // 分享被用户自动取消
+      cancel : function(resp) {
+          alert("分享被取消");
+          },
+      // 分享失败了
+      fail : function(resp) {
+          alert("分享失败，请稍候尝试");
+          },
+      // 分享成功
+      confirm : function(resp) {
+      window.location.href="<{$jumpurl}>"
+          }
+      };
+
+      // 点击分享到朋友圈，会执行下面这个代码
+      Api.shareToTimeline(wxData, wxCallbacks);
+    });
+</script>
+<else />
+<script type="text/javascript">
+
+  // 开启Api的debug模式
+  WeixinApi.enableDebugMode();
+
+  // 需要分享的内容，请放到ready里
+  WeixinApi.ready(function(Api) {
+
+  // 微信分享的数据
+  var wxData = {
+      "appId": "", // 服务号可以填写appId
+      "imgUrl" : '__PUBLIC__/images/index.jpg',
+      "link" : "<{$shareurl}>",
+      "desc" : '炫目大奖，轻轻一刮拿回家',
+      "title" : "微信刮刮乐——分享得大奖"
+      };
+
+  // 分享的回调
+  var wxCallbacks = {
+      // 收藏操作是否触发回调，默认是开启的
+      favorite : false,
+
+      // 分享被用户自动取消
+      cancel : function(resp) {
+          alert("分享被取消");
+          },
+      // 分享失败了
+      fail : function(resp) {
+          alert("分享失败，请稍候尝试");
+          },
+      // 分享成功
+      confirm : function(resp) {
+      window.location.href="<{$jumpurl}>";
+          }
+      };
+
+      // 点击分享到朋友圈，会执行下面这个代码
+      Api.shareToTimeline(wxData, wxCallbacks);
+    });
+</script>
+</if>
+</body>
+</if>
+<!--第一种情况结束-->
+<!--第二种情况-->
+<if condition="$checkshow eq 2">
+<head>
+<include file="model/head" />
+</head>
+<body>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="col-xs-12">
+<div class="head">
+</div>
+
+<div class="main">
+<div id="title"></div>
+<div class="award">
+<div class="panel panel-success">
+   <div class="panel-heading">
+      <h3 class="panel-title">奖品列表</h3>
+   </div>
+   <div class="panel-body">
+<table class="table table-bordered">
+   <tbody>
+      <tr>
+        <volist name="award" id="vo">
+        <td><img src="__PUBLIC__/Uploads/images/<{$vo.showimage}>" style="width: 15%;height: 10%"/></td>
+        </volist>
+      </tr>
+   </tbody>
+</table>
+   </div>
+</div>
+</div>
+    
+      <div id="mcover" onclick="document.getElementById('mcover').style.display='';" style="display:none;">
+                    <img src="__PUBLIC__/guide2.png" />
+                </div>
+   <div class="text" id="content">
+                    <div id="mess_share">
+                        <div id="share_2">
+                            <button class="btn btn-danger" onclick="document.getElementById('mcover').style.display='block';" style="width: 100%;">
+                            点击关注公众帐号即可刮奖
+                            </button>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+<div class="rules">
+<div class="panel panel-success">
+   <div class="panel-heading">
+      <h3 class="panel-title">活动细则</h3>
+   </div>
+   <div class="panel-body" id="jump">
+<ul class="list-group">
+   <li class="list-group-item text-left"><{$introduction|htmlspecialchars_decode|stripslashes}></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<a class="text-center" style="color: #ffffff" href="www.eason-yang.com">© 2014 Eason Yang ALL RIGHTS RESERVED</a>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+  // 开启Api的debug模式
+  //WeixinApi.enableDebugMode();
+
+  // 需要分享的内容，请放到ready里
+  WeixinApi.ready(function(Api) {
+
+  // 微信分享的数据
+  var wxData = {
+      "appId": "", // 服务号可以填写appId
+      "imgUrl" : '__PUBLIC__/images/index.jpg',
+      "link" : "<{$shareurl}>",
+      "desc" : '炫目大奖，轻轻一刮拿回家',
+      "title" : "微信刮刮乐——分享得大奖"
+      };
+
+  // 分享的回调
+  var wxCallbacks = {
+      // 收藏操作是否触发回调，默认是开启的
+      favorite : false,
+
+      // 分享被用户自动取消
+      cancel : function(resp) {
+          alert("分享被取消");
+          },
+      // 分享失败了
+      fail : function(resp) {
+          alert("分享失败");
+          },
+      // 分享成功
+      confirm : function(resp) {
+      // 分享成功了
+          alert("分享成功");
+          }
+      };
+
+      // 点击分享到朋友圈，会执行下面这个代码
+      Api.shareToTimeline(wxData, wxCallbacks);
+    });
+</script>
+
+</body>
+</if>
+<!--第二种情况结束-->
+<!--第三种情况-->
+<if condition="$checkshow eq 3">
+<head>
+<include file="model/head" />
+</head>
+<body>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="col-xs-12">
+<div class="head">
+</div>
+
+<div class="main">
+<div id="title"></div>
+<div class="award">
+<div class="panel panel-success">
+   <div class="panel-heading">
+      <h3 class="panel-title">奖品列表</h3>
+   </div>
+   <div class="panel-body">
+<table class="table table-bordered">
+   <tbody>
+      <tr>
+        <volist name="award" id="vo">
+        <td><img src="__PUBLIC__/Uploads/images/<{$vo.showimage}>" style="width: 15%;height: 10%"/></td>
+        </volist>
+      </tr>
+   </tbody>
+</table>
+   </div>
+</div>
+</div>
+    
+      <div id="mcover" onclick="document.getElementById('mcover').style.display='';" style="display:none;">
+                    <img src="__PUBLIC__/guide.png" />
+                </div>
+   <div class="text" id="content">
+                    <div id="mess_share">
+                        <div id="share_2">
+                            <button class="btn btn-danger" onclick="document.getElementById('mcover').style.display='block';" style="width: 100%;">
+                            分享到朋友圈，让更多的朋友们参与进来吧
+                            </button>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+<div class="rules">
+<div class="panel panel-success">
+   <div class="panel-heading">
+      <h3 class="panel-title">活动细则</h3>
+   </div>
+   <div class="panel-body" id="jump">
+<ul class="list-group">
+   <li class="list-group-item text-left"><{$introduction|htmlspecialchars_decode|stripslashes}></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<a class="text-center" style="color: #ffffff" href="www.eason-yang.com">© 2014 Eason Yang ALL RIGHTS RESERVED</a>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+  // 开启Api的debug模式
+  WeixinApi.enableDebugMode();
+
+  // 需要分享的内容，请放到ready里
+  WeixinApi.ready(function(Api) {
+
+  // 微信分享的数据
+  var wxData = {
+      "appId": "", // 服务号可以填写appId
+      "imgUrl" : '__PUBLIC__/images/index.jpg',
+      "link" : "<{$shareurl}>",
+      "desc" : '炫目大奖，轻轻一刮拿回家',
+      "title" : "微信刮刮乐——分享得大奖"
+      };
+
+  // 分享的回调
+  var wxCallbacks = {
+      // 收藏操作是否触发回调，默认是开启的
+      favorite : false,
+
+      // 分享被用户自动取消
+      cancel : function(resp) {
+          alert("分享被取消");
+          },
+      // 分享失败了
+      fail : function(resp) {
+          alert("分享失败");
+          },
+      // 分享成功
+      confirm : function(resp) {
+      // 分享成功了
+          alert("分享成功");
+          }
+      };
+
+      // 点击分享到朋友圈，会执行下面这个代码
+      Api.shareToTimeline(wxData, wxCallbacks);
+    });
+</script>
+
+</body>
+</if>
+<!--第三种情况结束-->
+</html>

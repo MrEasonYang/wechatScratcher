@@ -1,0 +1,55 @@
+<head>
+<title>奖品(本页显示顺序即为前台顺序)</title>
+<include file="model/head" />
+</head>
+<body>
+<include file="model/nav" />
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="col-md-10 col-md-offset-1">
+<if condition="$show eq 1">
+<table class="table table-bordered table-responsive">
+<thead>
+<tr>
+
+<th class="text-center">奖品名称</th>
+<th class="text-center">概率</th>
+<th class="text-center">数量</th>
+<th class="text-center">操作1</th>
+<th class="text-center">操作2</th>
+</tr>
+</thead>
+<tbody>
+<volist name="data" id="vo">
+<tr>
+
+<td class="text-center"><{$vo.name}></td>
+<td class="text-center"><{$vo.probility}></td>
+<td class="text-center"><{$vo.amount}></td>
+<td class="text-center">
+<a class="btn btn-default" href="__URL__/awarddetail/id/<{$vo.id}>">设置</a>
+</td>
+<td class="text-center">
+<a class="btn btn-default" href="__URL__/deleteaward/id/<{$vo.id}>">删除</a>
+</td>
+</tr>
+</volist>
+
+</tbody>
+</table>
+<else/>
+<h2 class="text-center">亲，你还没有设置过奖品呢，快添加一个吧</h2>
+</if>
+<div class="container-fluid" style="padding-top:1.5%">
+<div class="row-fluid">
+<div class="col-md-8 col-md-offset-2">
+<a class="btn btn-info btn-block btn-lg" href="<{:U('Admin/Setting/addaward')}>">添加</a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<include file="model/footer"/>
+</body>

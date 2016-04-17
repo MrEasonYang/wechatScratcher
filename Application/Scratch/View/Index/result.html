@@ -1,0 +1,49 @@
+<head>
+<title>Tips</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css" rel="stylesheet">
+<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/js/WeixinApi.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="col-xs-12">
+<div class="alert alert-warning" style="margin-top: 20%;">
+<h4 class="text-center">亲，您的分享记录我们已收到，我们将尽快核实您的获奖情况并与您联系，感谢您的支持^_^</h4>
+</div>
+</div>
+</div>
+<div class="row-fluid">
+<div class="col-xs-12">
+<button id="closeWindow" class="btn btn-success text-center" style="width: 100%;">退出本页面</button>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+            // 给按钮增加click事件
+            var addEvent = function(elId,listener){
+                document.getElementById(elId)
+                        .addEventListener('click',function(e){
+                            if(!window.WeixinApi || !window.WeixinJSBridge) {
+                                alert('请确认您是在微信内置浏览器中打开的');
+                                e.preventDefault();
+                                return false;
+                            }
+                            listener(this,e);
+                        },false);
+            };
+            // 关闭窗口
+            addEvent('closeWindow',function(el,e){
+                WeixinApi.closeWindow({
+                    success : function(resp){
+                    },
+                    fail : function(resp){
+                        alert('关闭窗口失败');
+                    }
+                });
+            });
+</script>
+</body>

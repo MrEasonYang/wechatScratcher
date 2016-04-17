@@ -1,0 +1,103 @@
+<title>微信刮刮乐</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css" rel="stylesheet">
+<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="__PUBLIC__/common.css" rel="stylesheet"/>
+<script src="__PUBLIC__/js/wScratchPad.min.js"></script>
+<script src="__PUBLIC__/js/WeixinApi.js"></script>
+<style>
+body{background-color: #993399;text-align: center;}
+#title{background-color: #993399;background-image: url('__PUBLIC__/background.jpg'); background-position: center; background-size: 100% 100%;background-repeat:no-repeat;width: 100%;height: 20%;margin-top: 1%;margin-bottom: 1%;}
+#mcover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 20000;
+ }
+ #mcover img {
+    position: fixed;
+    right: 18px;
+    top: 5px;
+    width: 260px!important;
+    height: 180px!important;
+    z-index: 20001;
+ }
+ .text {
+    margin: 15px 0;
+    font-size: 14px;
+    word-wrap: break-word;
+    color: #727272;
+ }
+ #mess_share {
+    margin: 15px 0;
+    display: block;
+ }
+ #share_1 {
+    float: left;
+    width: 49%;
+    display: block;
+ }
+ #share_2 {
+    float: left;
+    width: 100%;
+    display: block;
+ }
+ .clr {
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+ }
+ .button2 {
+    font-size: 16px;
+    padding: 8px 0;
+    border: 1px solid #adadab;
+    color: #000000;
+    background-color: #e8e8e8;
+    background-image: linear-gradient(to top, #dbdbdb, #f4f4f4);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45), inset 0 1px 1px #efefef;
+    text-shadow: 0.5px 0.5px 1px #fff;
+    text-align: center;
+    border-radius: 3px;
+    width: 100%;
+ }
+ #mess_share img {
+    width: 22px!important;
+    height: 22px!important;
+    vertical-align: top;
+    border: 0;
+ }
+ /**********************audio***********************/
+ .btn_music{
+    display:inline-block;
+    width:35px;
+    height:35px;
+    background:url('../../img/play.png') no-repeat center center;
+    background-size:100% auto;
+    position:absolute;
+    z-index:100;
+    left:15px;
+    top:20px;
+ }
+ .btn_music.on{
+    background-image:url('../../img/stop.png');
+ }
+ /******************************动画*************************/
+ #iframe_screen{
+    background:#fff;
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    z-index:300000;
+    overflow:hidden;
+ }
+
+</style>

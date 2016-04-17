@@ -1,0 +1,58 @@
+<head>
+<title>设置活动说明</title>
+<include file="model/head" />
+<js href="__PUBLIC__/ueditor/ueditor.config.js" />    
+<js href="__PUBLIC__/ueditor/ueditor.all.min.js" />
+<script type="text/javascript" charset="utf-8">
+    window.UEDITOR_HOME_URL = "/Public/ueditor/";  //
+    window.onload=function(){
+        window.UEDITOR_CONFIG.initialFrameHeight=200;
+        UE.getEditor('container');       
+    }
+</script>
+</head>
+<body>
+<include file="model/nav" />
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="col-md-10 col-md-offset-1">
+
+<form method="POST" action="<{:U('Admin/Setting/solveintroduction')}>" id="form">
+
+<div class="panel panel-primary">
+<div class="panel-heading">设置活动说明</div>
+<ul class="list-group">
+
+
+
+<div class="controls">
+<script id="container" name="introduction" type="text/plain" >
+<{$data['content']|htmlspecialchars_decode|stripslashes}>
+</script>
+</div>
+
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="container-fluid" style="padding-top:1.5%">
+<div class="row-fluid">
+<div class="col-md-8 col-md-offset-2">
+<input class="btn btn-info btn-block btn-lg" type="submit" value="提交" />
+</div>
+</div>
+</div>
+
+<script>
+$(function(){
+    $("#form").Validform({tiptype:3});
+})
+</script>
+
+</div>
+</div>
+</div>
+<include file="model/footer"/>
+</body>
